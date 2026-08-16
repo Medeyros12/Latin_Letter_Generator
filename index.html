@@ -8,29 +8,22 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
-
-    <!-- 1. DIV ONDE O VUE VAI ATUAR -->
     <div id="app">
-        <h1>{{ titulo }}</h1>
+        <h1>Latin Letter Generator</h1>
         
         <div class="letterBox">
             <img class="side" :src=side.path>
             <img class="bottom" :src=bottom.path>
             <img class="top" :src=top.path>
         </div>
-        <!-- Exemplo de clique que você pode apagar -->
         <button @click=getRandomElement>Clique Aqui</button>
     </div>
 
-    <!-- 2. SCRIPT DE CONFIGURAÇÃO DO VUE -->
     <script>
-        // Desestruturação para usar a Composition API
         const { createApp, ref } = Vue;
 
         createApp({
             setup() {
-                // Suas variáveis reativas ficam aqui
-                const titulo = ref('Meu Site Simplão');
                 const tops = [
                     { name: "blank", path: 'assets/letter_elements/Moldura (5).png' },
                     { name: "top loop", path: 'assets/letter_elements/Moldura (2).png' },
@@ -58,14 +51,11 @@
                 const bottom = bottoms[Math.floor(Math.random() * bottoms.length)];
                 const side = sides[Math.floor(Math.random() * sides.length)];
 
-                // Suas funções ficam aqui
                 function getRandomElement() {
                     elmntx.value = elmnts[Math.floor(Math.random() * elmnts.length)];;
                 };
 
-                // Tudo que for usado no HTML precisa ser retornado aqui
                 return {
-                    titulo,
                     tops,
                     bottoms,
                     sides,
@@ -75,7 +65,7 @@
                     getRandomElement
                 }
             }
-        }).mount('#app'); // Conecta o Vue à div com id="app"
+        }).mount('#app');
     </script>
 
 </body>
