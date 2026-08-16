@@ -1,5 +1,12 @@
-.bento {
+.letterBox {
     width: 96;
     height: 128;
-    background-color: goldenrod;
+    position: relative;
+}
+.side, .bottom, .top {
+    width: 96;
+    height: 128;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
